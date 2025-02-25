@@ -1,0 +1,10 @@
+file_format: "1"
+id: OnCoroCoro
+name: OnCoroCoro
+type: shield
+url: https://github.com/taichan1113/OnCoroCoro-ZMK
+requires: [seeeduino_xiao_ble]
+features:
+  - keys
+  - pointer
+  # - studio

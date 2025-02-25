@@ -1,0 +1,9 @@
+if SHIELD_OnCoroCoro
+
+config ZMK_KEYBOARD_NAME
+    default "OnCoroCoro"
+
+endif
+
+config SPI
+	default y
