@@ -232,6 +232,7 @@
     device = <&trackball>;
     default {
         layers = <DEFAULT>;
+        input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>;
         process-next;
     };
     // input-processors = <&zip_temp_layer MOUSE 2000>;
@@ -266,7 +267,7 @@
 
     scroll {
         layers = <DEFAULT>;
-        input-processors = <&zip_xy_to_scroll_mapper>;
+        input-processors = <&zip_xy_to_scroll_mapper>,<&zip_xy_scaler 1 10>, <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT), <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>;
         process-next;
     };
   };
