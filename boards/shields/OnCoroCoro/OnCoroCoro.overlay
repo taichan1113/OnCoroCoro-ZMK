@@ -136,22 +136,22 @@
         triggers-per-rotation = <12>;
     };
 
-    vbatt: vbatt {
-        compatible = "zmk,battery-voltage-divider";
-		io-channels = <&adc 2>;
-		output-ohms = <2000000>;
-		full-ohms = <(2000000 + 806000)>;
-    };
+    // vbatt: vbatt {
+    //     compatible = "zmk,battery-voltage-divider";
+	// 	io-channels = <&adc 2>;
+	// 	output-ohms = <2000000>;
+	// 	full-ohms = <(2000000 + 806000)>;
+    // };
 };
 
-// &gpio0 {
-//     fastbatcharge: fast-battery-charge {
-//         gpio-hog;
-//         gpios = <13 GPIO_ACTIVE_HIGH>;
-//         output-low;
-//         line-name = "Fast Battery Charge";
-//     };
-// };
+&gpio0 {
+    fastbatcharge: fast-battery-charge {
+        gpio-hog;
+        gpios = <13 GPIO_ACTIVE_HIGH>;
+        output-low;
+        line-name = "Fast Battery Charge";
+    };
+};
 
 ///////////////////////////////////////////////////////////////////////////////////
 &pinctrl {
