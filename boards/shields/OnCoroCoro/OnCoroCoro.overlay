@@ -239,7 +239,7 @@
     default {
         layers = <DEFAULT MOUSE>;
         input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>;
-        process-next;
+        // process-next;
     };
     
     // scroll {
@@ -251,7 +251,7 @@
     scroll {
         layers = <SYMBOL>;
         input-processors = <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>, <&zip_xy_scaler 1 10>, <&zip_xy_to_scroll_mapper>;
-        process-next;
+        // process-next;
     };
     // snipe {
     //     layers = <NAVNUM>;
