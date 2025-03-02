@@ -182,7 +182,7 @@
         };
         mouse_layer {
             display-name = "Mouse";
-            status = "reserved";
+            // status = "reserved";
             bindings = <
                 &trans &trans &trans &trans &trans &trans               &trans &trans &trans &trans &trans &trans
                 &trans &trans &kp LSHFT &mkp MCLK &mkp LCLK &mkp RCLK   &trans &trans &trans &trans &trans &trans
