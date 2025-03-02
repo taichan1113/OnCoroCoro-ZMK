@@ -8,6 +8,11 @@
 
 // layers
 #define DEFAULT 0
+#define SYMBOL 1
+#define NAVNUM 2
+#define FCN 3
+#define DEVICE 4
+// #define MOUSE 5
 
 / {
     chosen {
@@ -242,10 +247,11 @@
     //     process-next;
     // };
 
-    // scroll {
-    //     layers = <SCRL SYMBOL FCN MOUSE>;
-    //     input-processors = <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>, <&zip_xy_scaler 1 10>, <&zip_xy_to_scroll_mapper>;
-    // };
+    scroll {
+        layers = <SYMBOL>;
+        input-processors = <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>, <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>, <&zip_xy_scaler 1 10>, <&zip_xy_to_scroll_mapper>;
+        process-next;
+    };
     // snipe {
     //     layers = <NAVNUM>;
     //     input-processors = <&zip_xy_scaler 1 5>;
