@@ -235,11 +235,11 @@
   trackball_listener: trackball_listner {
     compatible = "zmk,input-listener";
     device = <&trackball>;
-    input-processors = <&zip_temp_layer MOUSE 2000>;
+    input-processors = &zip_xy_transform (INPUT_TRANSFORM_X_INVERT), <&zip_temp_layer MOUSE 2000>;
     default {
         layers = <DEFAULT MOUSE>;
-        input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>;
-        // process-next;
+        // input-processors = <>;
+        process-next;
     };
     
     // scroll {
@@ -250,8 +250,8 @@
 
     scroll {
         layers = <SYMBOL>;
-        input-processors = <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>, <&zip_xy_scaler 1 10>, <&zip_xy_to_scroll_mapper>;
-        // process-next;
+        input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>,<&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>, <&zip_xy_scaler 1 10>, <&zip_xy_to_scroll_mapper>;
+        process-next;
     };
     // snipe {
     //     layers = <NAVNUM>;
