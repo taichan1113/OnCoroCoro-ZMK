@@ -235,8 +235,8 @@
   trackball_listener: trackball_listner {
     compatible = "zmk,input-listener";
     device = <&trackball>;
-    // input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>, <&zip_temp_layer MOUSE 500>;
-    input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>;
+    input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>, <&zip_temp_layer MOUSE 500>;
+    // input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>;
     default {
         layers = <DEFAULT>;
         // input-processors = <>;
