@@ -12,7 +12,7 @@
 #define NAVNUM 2
 #define FCN 3
 #define DEVICE 4
-// #define MOUSE 5
+#define MOUSE 5
 
 &mt {
     flavor = "hold-preferred";
