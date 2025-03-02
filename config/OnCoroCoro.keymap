@@ -131,7 +131,7 @@
                                &kp Z       &kp X        &kp C    &kp V     &kp B                                   &kp N           &kp M         &kp COMMA     &kp DOT &kp SLASH
                                                         &kp LALT &lth SYMBOL SPACE &mo NAVNUM &mkp LCLK &mkp MCLK  &lth NAVNUM DEL &mt LSHFT RET &kp LGUI
             >;
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
         symbol_layer {
             display-name = "Symbol";
@@ -141,7 +141,7 @@
                                &kp JP_PIPE  &trans    &trans      &kp JP_CARET &kp JP_AMPS                          &kp LANG2    &kp JP_RBRC   &kp JP_LT     &kp JP_GT    &kp JP_QMARK
                                                       &trans      &trans       &trans           &trans    &trans    &trans       &trans        &trans
             >;
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
         navnum_layer {
             display-name = "Navigation/Number";
@@ -151,7 +151,7 @@
                                &kp LC(Z) &kp LC(X) &kp LC(C) &kp LC(V)  &kp LC(Y)                            &kp PG_UP &kp PG_DN &kp HOME      &kp END   &kp CAPSLOCK
                                                    &trans    &trans     &trans      &mkp MB4     &mkp MB5    &trans    &trans    &trans
             >;
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
         fcn_layer {
             display-name = "Function";
@@ -161,7 +161,7 @@
                        &trans &trans &trans &trans &trans                   &trans &trans &trans &trans &trans
                                      &trans &trans &trans &mkp RCLK &trans  &trans &trans &trans
             >;
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
         device_layer {
             display-name = "Device";
@@ -171,7 +171,7 @@
                             &trans       &trans       &trans       &trans       &trans                &trans       &trans       &trans &trans &trans
                                                       &trans       &trans       &trans  &trans &trans &trans       &trans       &trans
             >;
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
         mouse_layer {
             display-name = "Mouse";
@@ -182,7 +182,7 @@
                        &trans &trans &trans &trans &trans               &trans &trans &trans &trans &trans
                                      &trans &trans &trans &trans &trans &trans &trans &trans
             >;
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
     };
 };
