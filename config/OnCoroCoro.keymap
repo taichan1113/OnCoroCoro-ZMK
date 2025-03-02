@@ -32,14 +32,14 @@
         };
     };
 
-    combos{
-        compatible = "zmk,combos";
-        combo_clk {
-            timeout-ms = <200>;
-            key-positions = <37 38>;
-            bindings = <&mkp MCLK>;
-        };
-    };
+    // combos{
+    //     compatible = "zmk,combos";
+    //     combo_clk {
+    //         timeout-ms = <200>;
+    //         key-positions = <37 38>;
+    //         bindings = <&mkp MCLK>;
+    //     };
+    // };
 
     behaviors {
         // Japanese settings
@@ -126,10 +126,10 @@
         default_layer {
             display-name = "Default";
             bindings = <
-                &ltt FCN TAB   &plt FCN Q  &kp W        &kp E    &kp R              &kp T                                   &kp Y           &kp U         &kp I         &kp O   &kp P     &minus
-                &mth LCTRL RET &kp A       &pmtc LSFT S &kp D    &kp F              &kp G                                   &kp H           &kp J         &kp K         &kp L   &semi     &sqt
-                               &kp Z       &kp X        &kp C    &kp V              &kp B                                   &kp N           &kp M         &kp COMMA     &kp DOT &kp SLASH
-                                                        &kp LALT &lth NAVNUM BSPC   &lth SYMBOL SPACE &mkp LCLK  &mkp RCLK  &lth NAVNUM DEL &mt LSHFT RET &kp LGUI
+                &ltt FCN TAB   &plt FCN Q  &kp W        &kp E    &kp R     &kp T                                   &kp Y           &kp U         &kp I         &kp O   &kp P     &minus
+                &mth LCTRL RET &kp A       &pmtc LSFT S &kp D    &kp F     &kp G                                   &kp H           &kp J         &kp K         &kp L   &semi     &sqt
+                               &kp Z       &kp X        &kp C    &kp V     &kp B                                   &kp N           &kp M         &kp COMMA     &kp DOT &kp SLASH
+                                                        &kp LALT &lth SYMBOL SPACE &mo NAVNUM &mkp LCLK &mkp MCLK  &lth NAVNUM DEL &mt LSHFT RET &kp LGUI
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
@@ -156,10 +156,10 @@
         fcn_layer {
             display-name = "Function";
             bindings = <
-                &kp F1 &trans &kp F2 &kp F3 &kp F4 &kp F5               &kp F6 &kp F7 &kp F8 &kp F9 &kp F10 &kp F11
-                &trans &trans &trans &trans &trans &trans               &trans &trans &trans &trans &trans  &kp F12
-                       &trans &trans &trans &trans &trans               &trans &trans &trans &trans &trans
-                                     &trans &trans &trans &trans &trans &trans &trans &trans
+                &kp F1 &trans &kp F2 &kp F3 &kp F4 &kp F5                   &kp F6 &kp F7 &kp F8 &kp F9 &kp F10 &kp F11
+                &trans &trans &trans &trans &trans &trans                   &trans &trans &trans &trans &trans  &kp F12
+                       &trans &trans &trans &trans &trans                   &trans &trans &trans &trans &trans
+                                     &trans &trans &trans &mkp RCLK &trans  &trans &trans &trans
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
@@ -175,10 +175,10 @@
         };
         mouse_layer {
             display-name = "Mouse";
-            status = "reserved";
+            // status = "reserved";
             bindings = <
                 &trans &trans &trans &trans &trans &trans               &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans               &trans &trans &trans &trans &trans &trans
+                &trans &trans &kp LSHFT &mkp MCLK &mkp LCLK &mkp RCLK   &trans &trans &trans &trans &trans &trans
                        &trans &trans &trans &trans &trans               &trans &trans &trans &trans &trans
                                      &trans &trans &trans &trans &trans &trans &trans &trans
             >;
