@@ -160,10 +160,10 @@
             bindings = <&gui_p>, <&alt_p>;
             mods = <(MOD_LALT|MOD_RALT)>;
         };
-        vol_alt_gui_p: volume-alt-gui-positive {
+        lr_alt_gui_p: left-right-alt-gui-positive {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp C_VOL_UP>, <&ag_p>;
+            bindings = <&kp RIGHT>, <&ag_p>;
             mods = <(MOD_LALT|MOD_RALT|MOD_LGUI|MOD_RGUI)>;
         };
         alt_n: alt-negative {
@@ -186,16 +186,16 @@
             bindings = <&gui_n>, <&alt_n>;
             mods = <(MOD_LALT|MOD_RALT)>;
         };
-        vol_alt_gui_n: volume-alt-gui-negative {
+        lr_alt_gui_n: left-right-alt-gui-negative {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp C_VOL_DN>, <&ag_n>;
+            bindings = <&kp LEFT>, <&ag_n>;
             mods = <(MOD_LALT|MOD_RALT|MOD_LGUI|MOD_RGUI)>;
         };
-        vol_alt_tab: volume-alt-apps {
+        lr_alt_tab: left-right-alt-tab {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
-            bindings = <&vol_alt_gui_n>, <&vol_alt_gui_p>;
+            bindings = <&lr_alt_gui_n>, <&lr_alt_gui_p>;
             tap-ms = <10>;
         };
 
@@ -211,7 +211,7 @@
                                 &kp Z       &kp X &kp C            &kp V     &kp B                                          &kp N         &kp M         &kp COMMA     &kp DOT &kp SLASH
                                                   &mth LSHIFT ESC  &lth SYMBOL SPACE &lth NAVNUM BSPC  &mkp LCLK  &mkp MCLK &mtt LALT DEL &mt LSHFT RET &kp LGUI
             >;
-            sensor-bindings = <&vol_alt_tab>;
+            sensor-bindings = <&lr_alt_tab>;
         };
         symbol_layer {
             display-name = "Symbol";
@@ -231,7 +231,7 @@
                                &kp LC(Z) &kp LC(X) &kp LC(C) &kp LC(V)  &kp LC(Y)              &kp PG_UP &kp PG_DN &kp HOME      &kp END   &kp CAPSLOCK
                                                    &trans    &trans     &trans   &trans &trans &trans    &trans    &trans
             >;
-            sensor-bindings = <&inc_dec_kp LEFT RIGHT>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
         fcn_layer {
             display-name = "Function";
