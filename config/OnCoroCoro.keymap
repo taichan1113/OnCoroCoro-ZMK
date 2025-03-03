@@ -166,6 +166,12 @@
             bindings = <&kp RIGHT>, <&ag_p>;
             mods = <(MOD_LALT|MOD_RALT|MOD_LGUI|MOD_RGUI)>;
         };
+        vol_alt_gui_p: volume-alt-gui-positive {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp C_VOL_UP>, <&ag_p>;
+            mods = <(MOD_LALT|MOD_RALT|MOD_LGUI|MOD_RGUI)>;
+        };
         alt_n: alt-negative {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
@@ -192,10 +198,16 @@
             bindings = <&kp LEFT>, <&ag_n>;
             mods = <(MOD_LALT|MOD_RALT|MOD_LGUI|MOD_RGUI)>;
         };
+        vol_alt_gui_n: volume-right-alt-gui-negative {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp C_VOL_DN>, <&ag_n>;
+            mods = <(MOD_LALT|MOD_RALT|MOD_LGUI|MOD_RGUI)>;
+        };
         lr_alt_tab: left-right-alt-tab {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
-            bindings = <&lr_alt_gui_n>, <&lr_alt_gui_p>;
+            bindings = <&vol_alt_gui_n>, <&vol_alt_gui_p>;
             tap-ms = <10>;
         };
 
@@ -209,9 +221,9 @@
                 &lt FCN TAB     &plt FCN Q  &kp W &kp E            &kp R     &kp T                                          &kp Y         &kp U         &kp I         &kp O   &kp P     &minus
                 &mth LCTRL RET  &kp A       &kp S &kp D            &kp F     &kp G                                          &kp H         &kp J         &kp K         &kp L   &semi     &sqt
                                 &kp Z       &kp X &kp C            &kp V     &kp B                                          &kp N         &kp M         &kp COMMA     &kp DOT &kp SLASH
-                                                  &mth LSHIFT ESC  &lth SYMBOL SPACE &lth NAVNUM BSPC  &mkp LCLK  &mkp MCLK &mtt LALT DEL &mt LSHFT RET &kp LGUI
+                                                  &mth LSHIFT ESC  &lth SYMBOL SPACE &lth NAVNUM BSPC  &mkp LCLK  &kp DEL   &kp LALT &mt LSHFT RET &kp LGUI
             >;
-            sensor-bindings = <&lr_alt_tab>;
+            sensor-bindings = <&vol_alt_tab>;
         };
         symbol_layer {
             display-name = "Symbol";
@@ -221,7 +233,7 @@
                                &kp JP_PIPE  &trans    &trans      &kp JP_CARET &kp JP_AMPS                          &kp LANG2    &kp JP_RBRC   &kp JP_LT     &kp JP_GT    &kp JP_QMARK
                                                       &trans      &trans       &trans           &trans    &trans    &trans       &trans        &trans
             >;
-            sensor-bindings = <&inc_dec_kp DOWN UP>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
         navnum_layer {
             display-name = "Navigation/Number";
