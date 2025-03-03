@@ -139,10 +139,10 @@
         default_layer {
             display-name = "Default";
             bindings = <
-                &mth LSHIFT ESC &plt FCN Q  &kp W        &kp E     &kp R     &kp T                                               &kp Y        &kp U         &kp I         &kp O   &kp P     &minus
-                &mth LCTRL RET  &kp A       &kp S        &kp D     &kp F     &kp G                                               &kp H        &kp J         &kp K         &kp L   &semi     &sqt
-                                &kp Z       &kp X        &kp C     &kp V     &kp B                                               &kp N        &kp M         &kp COMMA     &kp DOT &kp SLASH
-                                                         &kp LALT  &lth SYMBOL SPACE &lth NAVNUM BSPC &mkp LCLK &lth NAVNUM DEL  &ltt FCN TAB &mt LSHFT RET &kp LGUI
+                &ltt FCN TAB    &plt FCN Q  &kp W &kp E            &kp R     &kp T                                          &kp Y         &kp U         &kp I         &kp O   &kp P     &minus
+                &mth LCTRL RET  &kp A       &kp S &kp D            &kp F     &kp G                                          &kp H         &kp J         &kp K         &kp L   &semi     &sqt
+                                &kp Z       &kp X &kp C            &kp V     &kp B                                          &kp N         &kp M         &kp COMMA     &kp DOT &kp SLASH
+                                                  &mth LSHIFT ESC  &lth SYMBOL SPACE &lth NAVNUM BSPC  &mkp LCLK  &mkp MCLK &mtt LALT DEL &mt LSHFT RET &kp LGUI
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
