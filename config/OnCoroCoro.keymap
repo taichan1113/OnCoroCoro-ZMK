@@ -15,6 +15,7 @@
 #define MOUSE 5
 
 #define CLICK_L 37
+#define CLICK_M 38
 
 &mt {
     flavor = "hold-preferred";
@@ -38,8 +39,8 @@
         compatible = "zmk,combos";
         combo_rclck {
             timeout-ms = <100>;
-            key-positions = <15 CLICK_L>;
-            bindings = <&mkp MCLK>;
+            key-positions = <CLICK_L CLICK_M>;
+            bindings = <&mkp RCLK>;
         };
     //     combo_mclk {
     //         timeout-ms = <100>;
@@ -205,7 +206,7 @@
         default_layer {
             display-name = "Default";
             bindings = <
-                &ltt FCN TAB    &plt FCN Q  &kp W &kp E            &kp R     &kp T                                          &kp Y         &kp U         &kp I         &kp O   &kp P     &minus
+                &lt FCN TAB     &plt FCN Q  &kp W &kp E            &kp R     &kp T                                          &kp Y         &kp U         &kp I         &kp O   &kp P     &minus
                 &mth LCTRL RET  &kp A       &kp S &kp D            &kp F     &kp G                                          &kp H         &kp J         &kp K         &kp L   &semi     &sqt
                                 &kp Z       &kp X &kp C            &kp V     &kp B                                          &kp N         &kp M         &kp COMMA     &kp DOT &kp SLASH
                                                   &mth LSHIFT ESC  &lth SYMBOL SPACE &lth NAVNUM BSPC  &mkp LCLK  &mkp MCLK &mtt LALT DEL &mt LSHFT RET &kp LGUI
