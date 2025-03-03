@@ -132,6 +132,72 @@
             tapping-term-ms = <200>;
             bindings = <&mo>, <&kp>;
         };
+        // Encoders
+        enc_kp: encoder_key_press {
+            compatible = "zmk,behavior-sensor-rotate-var";
+            #sensor-binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
+        };
+
+        alt_p: alt-positive {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp 0>, <&kp TAB>;
+            mods = <(MOD_LALT|MOD_RALT)>;
+            keep-mods = <(MOD_LALT)>;
+        };
+        gui_p: gui-positive {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp 0>, <&kp RIGHT>;
+            mods = <(MOD_LGUI|MOD_RGUI)>;
+            keep-mods = <(MOD_LGUI)>;
+        };
+        ag_p: alt-gui-positive {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&gui_p>, <&alt_p>;
+            mods = <(MOD_LALT|MOD_RALT)>;
+        };
+        vol_alt_gui_p: volume-alt-gui-positive {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp C_VOL_UP>, <&ag_p>;
+            mods = <(MOD_LALT|MOD_RALT|MOD_LGUI|MOD_RGUI)>;
+        };
+        alt_n: alt-negative {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp 0>, <&kp LS(TAB)>;
+            mods = <(MOD_LALT|MOD_RALT)>;
+            keep-mods = <(MOD_LALT)>;
+        };
+        gui_n: gui-negative {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp 0>, <&kp LEFT>;
+            mods = <(MOD_LGUI|MOD_RGUI)>;
+            keep-mods = <(MOD_LGUI)>;
+        };
+        ag_n: alt-gui-negative {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&gui_n>, <&alt_n>;
+            mods = <(MOD_LALT|MOD_RALT)>;
+        };
+        vol_alt_gui_n: volume-alt-gui-negative {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp C_VOL_DN>, <&ag_n>;
+            mods = <(MOD_LALT|MOD_RALT|MOD_LGUI|MOD_RGUI)>;
+        };
+        vol_alt_tab: volume-alt-apps {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&vol_alt_gui_n>, <&vol_alt_gui_p>;
+            tap-ms = <10>;
+        };
+
     };
 
     keymap {
@@ -144,7 +210,7 @@
                                 &kp Z       &kp X &kp C            &kp V     &kp B                                          &kp N         &kp M         &kp COMMA     &kp DOT &kp SLASH
                                                   &mth LSHIFT ESC  &lth SYMBOL SPACE &lth NAVNUM BSPC  &mkp LCLK  &mkp MCLK &mtt LALT DEL &mt LSHFT RET &kp LGUI
             >;
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
+            sensor-bindings = <&vol_alt_tab>;
         };
         symbol_layer {
             display-name = "Symbol";
@@ -154,7 +220,7 @@
                                &kp JP_PIPE  &trans    &trans      &kp JP_CARET &kp JP_AMPS                          &kp LANG2    &kp JP_RBRC   &kp JP_LT     &kp JP_GT    &kp JP_QMARK
                                                       &trans      &trans       &trans           &trans    &trans    &trans       &trans        &trans
             >;
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
+            sensor-bindings = <&inc_dec_kp DOWN UP>;
         };
         navnum_layer {
             display-name = "Navigation/Number";
@@ -164,7 +230,7 @@
                                &kp LC(Z) &kp LC(X) &kp LC(C) &kp LC(V)  &kp LC(Y)              &kp PG_UP &kp PG_DN &kp HOME      &kp END   &kp CAPSLOCK
                                                    &trans    &trans     &trans   &trans &trans &trans    &trans    &trans
             >;
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
+            sensor-bindings = <&inc_dec_kp LEFT RIGHT>;
         };
         fcn_layer {
             display-name = "Function";
