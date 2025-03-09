@@ -251,7 +251,6 @@
                 &kp LSHIFT   &kp JP_PIPE  &trans    &trans      &kp JP_CARET &kp JP_AMPS                          &kp LANG2    &kp JP_RBRC   &kp JP_LT     &kp JP_GT    &kp JP_QMARK &kp JP_BSLH
                                                                 &trans       &trans           &trans    &trans    &trans       &trans        
             >;
-            sensor-bindings = <&mouse_scrl SCRL_DOWN SCRL_UP>;
         };
         navnum_layer {
             display-name = "Navigation/Number";
@@ -261,7 +260,6 @@
                 &kp LSHIFT   &kp LC(Z) &kp LC(X) &kp LC(C) &kp LC(V)  &kp LC(Y)                  &kp PG_UP &kp PG_DN &kp HOME &kp END   &trans   &kp PSCRN
                                                            &trans     &trans  &mkp MB4  &mkp MB5 &trans    &trans
             >;
-            sensor-bindings = <&mouse_scrl SCRL_DOWN SCRL_UP>;
         };
         fcn_layer {
             display-name = "Function";
@@ -271,8 +269,7 @@
                 &trans &trans &trans &trans &trans &trans               &trans &trans &trans &trans &trans  &trans
                                             &trans &trans &trans &trans &trans &trans
             >;
-            sensor-bindings = <&mouse_scrl SCRL_DOWN SCRL_UP>;
-            // sensor-bindings = <&rot_kp C_BRI_DN C_BRI_UP>;
+            sensor-bindings = <&mouse_scrl SCRL_UP SCRL_DOWN>;
         };
         device_layer {
             display-name = "Device";
