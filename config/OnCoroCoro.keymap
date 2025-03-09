@@ -160,7 +160,7 @@
             #sensor-binding-cells = <2>;
             bindings = <&kp>, <&kp>;
         };
-        
+
         mouse_scrl: mouse_wheel_scrl {
             compatible = "zmk,behavior-sensor-rotate-var";
             #sensor-binding-cells = <2>;
@@ -293,7 +293,7 @@
                                             &trans &trans &trans &trans &trans &trans
             >;
             // sensor-bindings = <&mouse_scrl SCRL_UP SCRL_DOWN>;
-            sensor-bindings = <&inc_dec_kp C_BRI_DN C_BRI_UP>
+            sensor-bindings = <&inc_dec_kp C_BRI_DN C_BRI_UP>;
         };
         device_layer {
             display-name = "Device";
