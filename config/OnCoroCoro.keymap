@@ -152,7 +152,7 @@
         arrow_p: arrow-positive {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp RIGHT>, <&kp UP>;
+            bindings = <&kp RIGHT>, <&kp DOWN>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };
         vol_arrow_p: volume-arrow-positive {
@@ -190,7 +190,7 @@
         arrow_n: arrow-negative {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp LEFT>, <&kp DOWN>;
+            bindings = <&kp LEFT>, <&kp UP>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };
         vol_arrow_n: volume-arrow-negative {
