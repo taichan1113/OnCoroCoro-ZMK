@@ -30,32 +30,10 @@
 
 &msc {
     delay-ms = <0>;
-    // trigger-period-ms = <5>; // default:16
+    trigger-period-ms = <10>; // default:16
     time-to-max-speed-ms = <0>;
     acceleration-exponent = <0>;
 };
-
-// /{
-//     input_processors {
-//         zip_wheel_scaler: zip_wheel_scaler {
-//             compatible = "zmk,input-processor-scaler";
-//             #input-processor-cells = <2>;
-//             type = <INPUT_EV_REL>;
-//             codes = <INPUT_REL_WHEEL>;
-//             track-remainders;
-//         };
-//     };
-// };
-
-// &msc_input_listner {
-//     normal {
-//         layers = <FCN>;
-//         input-processors = <&zip_wheel_scaler 2 1>;
-//     };
-// };
-// &msc_input_listener {
-//     input-processors = <&zip_temp_layer 2 2000>;
-// }
 
 / {
     conditional_layers {
@@ -165,7 +143,7 @@
             compatible = "zmk,behavior-sensor-rotate-var";
             #sensor-binding-cells = <2>;
             bindings = <&msc>, <&msc>;
-            tap-ms = <16>;
+            tap-ms = <10>;
         };
         alt_p: alt-positive {
             compatible = "zmk,behavior-mod-morph";
@@ -272,7 +250,7 @@
                 &kp LSHIFT   &kp JP_PIPE  &trans    &trans      &kp JP_CARET &kp JP_AMPS                          &kp LANG2    &kp JP_RBRC   &kp JP_LT     &kp JP_GT    &kp JP_QMARK &kp JP_BSLH
                                                                 &trans       &trans           &trans    &trans    &trans       &trans        
             >;
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
+            sensor-bindings = <&mouse_scrl SCRL_DOWN SCRL_UP>;
         };
         navnum_layer {
             display-name = "Navigation/Number";
@@ -282,7 +260,7 @@
                 &kp LSHIFT   &kp LC(Z) &kp LC(X) &kp LC(C) &kp LC(V)  &kp LC(Y)                  &kp PG_UP &kp PG_DN &kp HOME &kp END   &trans   &kp PSCRN
                                                            &trans     &trans  &mkp MB4  &mkp MB5 &trans    &trans
             >;
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
+            sensor-bindings = <&mouse_scrl SCRL_DOWN SCRL_UP>;
         };
         fcn_layer {
             display-name = "Function";
@@ -303,7 +281,6 @@
                 &trans      &trans       &trans       &trans       &trans       &trans                &trans       &trans       &trans &trans &trans &trans
                                                                    &trans       &trans  &trans &trans &trans       &trans
             >;
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
         mouse_layer {
             display-name = "Mouse";
@@ -314,7 +291,6 @@
                 &trans &trans &trans &trans &trans &trans               &trans &trans &trans &trans &trans &trans
                                             &trans &trans &trans &trans &trans &trans
             >;
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
     };
 };
