@@ -30,22 +30,22 @@
 
 &msc {
     delay-ms = <0>;
-    trigger-period-ms = <10>;
+    // trigger-period-ms = <5>; // default:16
     time-to-max-speed-ms = <0>;
     acceleration-exponent = <0>;
 };
 
-/{
-    input_processors {
-        zip_wheel_scaler: zip_wheel_scaler {
-            compatible = "zmk,input-processor-scaler";
-            #input-processor-cells = <2>;
-            type = <INPUT_EV_REL>;
-            codes = <INPUT_REL_WHEEL>;
-            track-remainders;
-        };
-    };
-};
+// /{
+//     input_processors {
+//         zip_wheel_scaler: zip_wheel_scaler {
+//             compatible = "zmk,input-processor-scaler";
+//             #input-processor-cells = <2>;
+//             type = <INPUT_EV_REL>;
+//             codes = <INPUT_REL_WHEEL>;
+//             track-remainders;
+//         };
+//     };
+// };
 
 // &msc_input_listner {
 //     normal {
@@ -165,7 +165,7 @@
             compatible = "zmk,behavior-sensor-rotate-var";
             #sensor-binding-cells = <2>;
             bindings = <&msc>, <&msc>;
-            tap-ms = <10>;
+            tap-ms = <16>;
         };
         alt_p: alt-positive {
             compatible = "zmk,behavior-mod-morph";
@@ -292,8 +292,8 @@
                 &trans &trans &trans &trans &trans &trans               &trans &trans &trans &trans &trans  &trans
                                             &trans &trans &trans &trans &trans &trans
             >;
-            // sensor-bindings = <&mouse_scrl SCRL_UP SCRL_DOWN>;
-            sensor-bindings = <&rot_kp C_BRI_DN C_BRI_UP>;
+            sensor-bindings = <&mouse_scrl SCRL_DOWN SCRL_UP>;
+            // sensor-bindings = <&rot_kp C_BRI_DN C_BRI_UP>;
         };
         device_layer {
             display-name = "Device";
