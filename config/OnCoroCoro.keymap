@@ -50,7 +50,7 @@
 &msc_input_listner {
     normal {
         layers = <FCN>;
-        input-processors = <&zip_wheel_scaler 2 1>
+        input-processors = <&zip_wheel_scaler 2 1>;
     };
 };
 
