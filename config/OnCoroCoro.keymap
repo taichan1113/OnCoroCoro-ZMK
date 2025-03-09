@@ -123,10 +123,10 @@
             bindings = <&mo>, <&kp>;
         };
         // Encoders
-        enc_kp: encoder_key_press {
+        enc_scrl: encoder_scroll {
             compatible = "zmk,behavior-sensor-rotate-var";
             #sensor-binding-cells = <2>;
-            bindings = <&kp>, <&kp>;
+            bindings = <&msc>, <&msc>;
         };
 
         alt_p: alt-positive {
@@ -254,7 +254,7 @@
                 &trans &trans &trans &trans &trans &trans               &trans &trans &trans &trans &trans  &trans
                                             &trans &trans &trans &trans &trans &trans
             >;
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
+            sensor-bindings = <&enc_scrl SCRL_UP SCRL_DOWN>;
         };
         device_layer {
             display-name = "Device";
