@@ -4,8 +4,11 @@
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/outputs.h>
 
+#include <input/processors.dtsi>
+#include <zephyr/dt-bindings/input/input-event-codes.h>
+
 #include "keycode_japanese.h"
-#include <dt-bindings/zmk/mouse.h>
+// #include <dt-bindings/zmk/mouse.h>
 
 #define DEFAULT 0
 #define SYMBOL 1
@@ -32,8 +35,26 @@
     acceleration-exponent = <0>;
 };
 
-/ {
+/{
+    input_processors {
+        zip_wheel_scaler: zip_wheel_scaler {
+            compatible = "zmk,input-processor-scaler";
+            #input-processor-cells = <2>;
+            type = <INPUT_EV_REL>;
+            codes = <INPUT_REL_WHEEL>;
+            track-remainders;
+        };
+    };
+};
 
+&msc_input_listner {
+    normal {
+        layers = <FCN>;
+        input-processors = <&zip_wheel_scaler 2 1>
+    };
+};
+
+/ {
     conditional_layers {
         compatible = "zmk,conditional-layers";
         device_layer {
@@ -131,10 +152,10 @@
         };
 
         // Encoders
-        enc_scrl: encoder_scroll {
-            compatible = "zmk,behavior-sensor-rotate";
-            #sensor-binding-cells = <0>;
-            bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
+        mouse_scrl: mouse_wheel_scrl {
+            compatible = "zmk,behavior-sensor-rotate-var";
+            #sensor-binding-cells = <2>;
+            bindings = <&msc>, <&msc>;
             tap-ms = <10>;
         };
         alt_p: alt-positive {
@@ -262,7 +283,7 @@
                 &trans &trans &trans &trans &trans &trans               &trans &trans &trans &trans &trans  &trans
                                             &trans &trans &trans &trans &trans &trans
             >;
-            sensor-bindings = <&enc_scrl>;
+            sensor-bindings = <&mouse_scrl SCRL_UP SCRL_DOWN>;
         };
         device_layer {
             display-name = "Device";
