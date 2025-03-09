@@ -25,6 +25,13 @@
     flavor = "hold-preferred";
 };
 
+&msc {
+    delay-ms = <0>;
+    trigger-period-ms = <10>;
+    time-to-max-speed-ms = <0>;
+    acceleration-exponent = <0>;
+};
+
 / {
 
     conditional_layers {
@@ -127,6 +134,7 @@
             compatible = "zmk,behavior-sensor-rotate-var";
             #sensor-binding-cells = <2>;
             bindings = <&msc>, <&msc>;
+            tap-ms = <10>;
         };
 
         alt_p: alt-positive {
