@@ -73,6 +73,20 @@
             bindings = <&kp JP_SQT>, <&kp JP_DQT>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+        minusmod: minus_mod {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&kp>, <&minus>;
+        };
+        sqtmod: sqt_mod {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&kp>, <&sqt>;
+        };
         // Hold-Tap
         plt: positional_layer_tap {
             compatible = "zmk,behavior-hold-tap";
@@ -235,20 +249,20 @@
         default_layer {
             display-name = "Default";
             bindings = <
-                &lth FCN TAB    &plt FCN Q  &kp W &kp E     &kp R     &kp T                                   &kp Y &kp U &kp I     &kp O   &kp P     &minus
+                &lth FCN TAB    &plt FCN Q  &kp W &kp E     &kp R     &kp T                                   &kp Y &kp U &kp I     &kp O   &kp P     &minusmod RALT 0
                 &mth LCTRL RET  &kp A       &kp S &kp D     &kp F     &kp G                                   &kp H &kp J &kp K     &kp L   &semi     &sqt
-                &mth LSHIFT ESC &kp Z       &kp X &kp C     &kp V     &kp B                                   &kp N &kp M &kp COMMA &kp DOT &kp SLASH &kp LGUI
-                                                    &lth SYMBOL SPACE &lth NAVNUM BSPC  &mkp LCLK  &mkp MCLK  &mt LALT DEL &mt LSHFT RET
+                &mth LSHIFT ESC &kp Z       &kp X &kp C     &kp V     &kp B                                   &kp N &kp M &kp COMMA &kp DOT &kp SLASH &kp RGUI
+                                                    &lth SYMBOL SPACE &lth NAVNUM BSPC  &mkp LCLK  &mkp MCLK  &mt LALT DEL &mt RSHFT RET
             >;
             sensor-bindings = <&vol_alt_tab>;
         };
         symbol_layer {
             display-name = "Symbol";
             bindings = <
-                &kp JP_TILDE &kp JP_EXCL  &kp JP_AT &kp JP_HASH &kp JP_DLLR  &kp JP_PRCNT                         &kp JP_YEN   &kp JP_GRAVE  &kp JP_ASTRK  &kp JP_LPAR  &kp JP_RPAR  &kp JP_EQUAL
-                &kp LCTRL    &kp JP_PLUS  &kp LEFT  &kp DOWN    &kp RIGHT    &kp UP                               &kp LANG1    &kp JP_LBRC   &kp JP_LBKT   &kp JP_RBKT  &kp JP_COLON &kp JP_DQT
-                &kp LSHIFT   &kp JP_PIPE  &trans    &trans      &kp JP_CARET &kp JP_AMPS                          &kp LANG2    &kp JP_RBRC   &kp JP_LT     &kp JP_GT    &kp JP_QMARK &kp JP_BSLH
-                                                                &trans       &trans           &trans    &trans    &trans       &kp LS(RET)        
+                &kp JP_TILDE &kp JP_EXCL  &kp JP_AT &kp JP_HASH &kp JP_DLLR  &kp JP_PRCNT              &kp JP_YEN   &kp JP_GRAVE  &kp JP_ASTRK  &kp JP_LPAR  &kp JP_RPAR  &kp JP_EQUAL
+                &kp LCTRL    &kp JP_PLUS  &kp LEFT  &kp DOWN    &kp RIGHT    &kp UP                    &kp LANG1    &kp JP_LBRC   &kp JP_LBKT   &kp JP_RBKT  &kp JP_COLON &kp JP_DQT
+                &kp LSHIFT   &kp JP_PIPE  &trans    &trans      &kp JP_CARET &kp JP_AMPS               &kp LANG2    &kp JP_RBRC   &kp JP_LT     &kp JP_GT    &kp JP_QMARK &kp JP_BSLH
+                                                                &trans       &trans      &trans &trans &trans       &kp LS(RET)
             >;
         };
         navnum_layer {
