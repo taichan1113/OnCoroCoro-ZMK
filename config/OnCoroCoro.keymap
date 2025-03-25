@@ -249,10 +249,10 @@
         default_layer {
             display-name = "Default";
             bindings = <
-                &lth FCN TAB    &plt FCN Q  &kp W &kp E     &kp R     &kp T                                   &kp Y &kp U &kp I     &kp O   &kp P     &minusmod RALT 0
+                &lth FCN TAB    &plt FCN Q  &kp W &kp E     &kp R     &kp T                                   &kp Y &kp U &kp I     &kp O   &kp P     &minusmod LALT 0
                 &mth LCTRL RET  &kp A       &kp S &kp D     &kp F     &kp G                                   &kp H &kp J &kp K     &kp L   &semi     &sqt
-                &mth LSHIFT ESC &kp Z       &kp X &kp C     &kp V     &kp B                                   &kp N &kp M &kp COMMA &kp DOT &kp SLASH &kp RGUI
-                                                    &lth SYMBOL SPACE &lth NAVNUM BSPC  &mkp LCLK  &mkp MCLK  &mt LALT DEL &mt RSHFT RET
+                &mth LSHIFT ESC &kp Z       &kp X &kp C     &kp V     &kp B                                   &kp N &kp M &kp COMMA &kp DOT &kp SLASH &kp LGUI
+                                                    &lth SYMBOL SPACE &lth NAVNUM BSPC  &mkp LCLK  &mkp MCLK  &mt LALT DEL &mt LSHFT RET
             >;
             sensor-bindings = <&vol_alt_tab>;
         };
