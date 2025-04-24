@@ -125,13 +125,13 @@
         };
     };
 
-    encoder_left: encoder_left {
-        compatible = "alps,ec11";
-        a-gpios = <&gpio0 16 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        b-gpios = <&gpio1 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        steps = <96>;
-        status = "disabled";
-    };
+    // encoder_left: encoder_left {
+    //     compatible = "alps,ec11";
+    //     a-gpios = <&gpio0 16 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+    //     b-gpios = <&gpio1 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+    //     steps = <96>;
+    //     status = "disabled";
+    // };
 
     encoder_right: encoder_right {
         compatible = "alps,ec11";
@@ -143,7 +143,9 @@
 
     sensors: sensors {
         compatible = "zmk,keymap-sensors";
-        sensors = <&encoder_left &encoder_right>;
+        // sensors = <&encoder_left>;
+        sensors = <&encoder_right>;
+        // sensors = <&encoder_left &encoder_right>;
         triggers-per-rotation = <24>;
     };
 };
@@ -188,18 +190,24 @@
 &spi0 {
     compatible = "nordic,nrf-spim";
     status = "disabled";
-    trackball: trackball@0 {
+    trackball_center: trackball_center@0 {
         compatible = "pixart,pmw3610";
         status = "disabled";
         reg = <0>;
         spi-max-frequency = <2000000>;
     };
-    trackball2: trackball2@1 {
+    trackball_left: trackball_left@1 {
         compatible = "pixart,pmw3610";
         status = "disabled";
         reg = <1>;
         spi-max-frequency = <2000000>;
     };
+    // trackball_right: trackball_right@1 {
+    //     compatible = "pixart,pmw3610";
+    //     status = "disabled";
+    //     reg = <1>;
+    //     spi-max-frequency = <2000000>;
+    // };
 };
 
 &spi0 {
@@ -212,7 +220,7 @@
     cs-gpios = <&gpio1 11 GPIO_ACTIVE_LOW>, <&gpio0 16 GPIO_ACTIVE_LOW>; // center+left trackball
 };
 
-&trackball { // center trackball
+&trackball_center { // center trackball
     status = "okay";
     irq-gpios = <&gpio0 9 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
     cpi = <800>;
@@ -223,7 +231,7 @@
     force-awake;
 };
 
-// &trackball2 { // right trackball
+// &trackball_right { // right trackball
 //     status = "okay";
 //     irq-gpios = <&gpio1 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
 //     cpi = <800>;
@@ -236,7 +244,7 @@
     status = "okay";
 };
 
-&trackball2 { // left trackball
+&trackball_left { // left trackball
     status = "okay";
     irq-gpios = <&gpio1 0 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
     cpi = <800>;
@@ -248,7 +256,7 @@
 };
 
 // &encoder_left {
-//     status = "okay";
+//     status = "disabled";
 // };
 
 
@@ -256,7 +264,7 @@
 / {
   trackball_listener: trackball_listner {
     compatible = "zmk,input-listener";
-    device = <&trackball>;
+    device = <&trackball_center>;
     // input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>, <&zip_temp_layer MOUSE 1000>; // auto mouse layer
     input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>;
     default {
@@ -273,7 +281,8 @@
   };
   trackball_listener2: trackball_listner2 {
     compatible = "zmk,input-listener";
-    device = <&trackball2>;
+    device = <&trackball_left>;
+    // device = <&trackball_right>;
 
     scroll {
         layers = <DEFAULT>;
