@@ -262,7 +262,7 @@
                 &mth LSHIFT ESC &kp Z       &kp X &kp C     &kp V     &kp B                                   &kp N &kp M &kp COMMA &kp DOT &kp SLASH &kp LGUI
                                                     &lth SYMBOL SPACE &lth NAVNUM BSPC  &mkp LCLK  &mkp MCLK  &mt LALT DEL &mt LSHFT RET
             >;
-            sensor-bindings = <&vol_alt_tab>;
+            sensor-bindings = <&vol_alt_tab &mouse_scrl SCRL_DOWN SCRL_UP>;
         };
         symbol_layer {
             display-name = "Symbol";
@@ -281,7 +281,6 @@
                 &kp LSHIFT   &kp LC(Z) &kp LC(X) &kp LC(C) &kp LC(V)  &kp LC(Y)                  &kp PG_UP &kp PG_DN &kp HOME &kp END   &trans   &kp PSCRN
                                                            &trans     &trans  &mkp MB4  &mkp MB5 &trans    &trans
             >;
-            sensor-bindings = <&mouse_scrl SCRL_DOWN SCRL_UP>;
         };
         fcn_layer {
             display-name = "Function";
@@ -291,7 +290,7 @@
                 &trans &trans &trans &trans &trans &trans               &trans &trans &trans &trans &trans  &trans
                                             &trans &trans &trans &trans &trans &trans
             >;
-            sensor-bindings = <&mouse_scrl SCRL_RIGHT SCRL_LEFT>;
+            sensor-bindings = <&mouse_scrl SCRL_DOWN SCRL_UP &mouse_scrl SCRL_LEFT SCRL_RIGHT>;
         };
         device_layer {
             display-name = "Device";
