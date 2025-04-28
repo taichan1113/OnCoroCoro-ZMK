@@ -80,6 +80,14 @@
             tapping-term-ms = <200>;
             bindings = <&kp>, <&minus>;
         };
+        minuslayer: minus_layer {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            hold-while-undecided;
+            tapping-term-ms = <200>;
+            bindings = <&mo>, <&minus>;
+        };
         sqtmod: sqt_mod {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -249,8 +257,8 @@
         default_layer {
             display-name = "Default";
             bindings = <
-                &lth FCN TAB    &plt FCN Q  &kp W &kp E     &kp R     &kp T                                   &kp Y &kp U &kp I     &kp O   &kp P     &minusmod LALT 0
-                &mth LCTRL RET  &kp A       &kp S &kp D     &kp F     &kp G                                   &kp H &kp J &kp K     &kp L   &semi     &sqt
+                &lth FCN TAB    &plt FCN Q  &kp W &kp E     &kp R     &kp T                                   &kp Y &kp U &kp I     &kp O   &kp P     &minuslayer NAVNUM 0
+                &mth LCTRL RET  &kp A       &kp S &kp D     &kp F     &kp G                                   &kp H &kp J &kp K     &kp L   &semi     &sqtmod LALT 0
                 &mth LSHIFT ESC &kp Z       &kp X &kp C     &kp V     &kp B                                   &kp N &kp M &kp COMMA &kp DOT &kp SLASH &kp LGUI
                                                     &lth SYMBOL SPACE &lth NAVNUM BSPC  &mkp LCLK  &mkp MCLK  &mt LALT DEL &mt LSHFT RET
             >;
@@ -259,9 +267,9 @@
         symbol_layer {
             display-name = "Symbol";
             bindings = <
-                &kp JP_TILDE &kp JP_EXCL  &kp JP_AT &kp JP_HASH &kp JP_DLLR  &kp JP_PRCNT              &kp JP_YEN   &kp JP_GRAVE  &kp JP_ASTRK  &kp JP_LPAR  &kp JP_RPAR  &kp JP_EQUAL
-                &kp LCTRL    &kp JP_PLUS  &kp LEFT  &kp DOWN    &kp RIGHT    &kp UP                    &kp LANG1    &kp JP_LBRC   &kp JP_LBKT   &kp JP_RBKT  &kp JP_COLON &kp JP_DQT
-                &kp LSHIFT   &kp JP_PIPE  &trans    &trans      &kp JP_CARET &kp JP_AMPS               &kp LANG2    &kp JP_RBRC   &kp JP_LT     &kp JP_GT    &kp JP_QMARK &kp JP_BSLH
+                &kp JP_TILDE &kp JP_EXCL  &kp JP_AT     &kp JP_HASH     &kp JP_DLLR  &kp JP_PRCNT              &kp JP_YEN   &kp JP_GRAVE  &kp JP_ASTRK  &kp JP_LPAR  &kp JP_RPAR  &kp JP_EQUAL
+                &kp LCTRL    &kp JP_PLUS  &kp JP_MINUS  &kp JP_SLASH    &kp JP_ASTRK &kp JP_EQUAL              &kp LANG1    &kp JP_LBRC   &kp JP_LBKT   &kp JP_RBKT  &kp JP_COLON &kp JP_DQT
+                &kp LSHIFT   &kp JP_PIPE  &trans        &trans          &kp JP_CARET &kp JP_AMPS               &kp LANG2    &kp JP_RBRC   &kp JP_LT     &kp JP_GT    &kp JP_QMARK &kp JP_BSLH
                                                                 &trans       &trans      &trans &trans &trans       &kp LS(RET)
             >;
         };
@@ -273,6 +281,7 @@
                 &kp LSHIFT   &kp LC(Z) &kp LC(X) &kp LC(C) &kp LC(V)  &kp LC(Y)                  &kp PG_UP &kp PG_DN &kp HOME &kp END   &trans   &kp PSCRN
                                                            &trans     &trans  &mkp MB4  &mkp MB5 &trans    &trans
             >;
+            sensor-bindings = <&mouse_scrl SCRL_DOWN SCRL_UP>;
         };
         fcn_layer {
             display-name = "Function";
@@ -282,7 +291,7 @@
                 &trans &trans &trans &trans &trans &trans               &trans &trans &trans &trans &trans  &trans
                                             &trans &trans &trans &trans &trans &trans
             >;
-            sensor-bindings = <&mouse_scrl SCRL_UP SCRL_DOWN>;
+            sensor-bindings = <&mouse_scrl SCRL_RIGHT SCRL_LEFT>;
         };
         device_layer {
             display-name = "Device";
