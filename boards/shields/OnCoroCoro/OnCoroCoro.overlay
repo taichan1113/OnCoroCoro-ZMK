@@ -252,13 +252,12 @@
     x-input-code = <INPUT_REL_X>;
     y-input-code = <INPUT_REL_Y>;
 
-    force-awake;
+    // force-awake;
 };
 
 // &encoder_left {
 //     status = "disabled";
 // };
-
 
 
 / {
@@ -267,11 +266,7 @@
     device = <&trackball_center>;
     // input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>, <&zip_temp_layer MOUSE 1000>; // auto mouse layer
     input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>;
-    default {
-        layers = <DEFAULT>;
-        process-next;
-    };
-    
+
     scroll {
         layers = <SYMBOL>;
         input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>,<&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>, <&zip_xy_scaler 1 10>, <&zip_xy_to_scroll_mapper>;
