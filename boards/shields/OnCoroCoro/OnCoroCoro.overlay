@@ -148,6 +148,17 @@
         // sensors = <&encoder_left &encoder_right>;
         triggers-per-rotation = <24>;
     };
+
+    input_processors {
+    zip_xy_to_volume_mapper: zip_xy_to_volume_mapper {
+        compatible = "zmk,input-processor-code-mapper";
+        #input-processor-cells = <0>;
+        type = <INPUT_EV_REL>;
+        map = <INPUT_REL_X INPUT_KEY_VOLUMEUP>,
+                <INPUT_REL_Y INPUT_KEY_VOLUMEDOWN>;
+    };
+  };
+  
 };
 
 &gpio0 {
@@ -283,6 +294,11 @@
         layers = <DEFAULT>;
         input-processors = <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>, <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>, <&zip_xy_scaler 1 20>, <&zip_xy_to_scroll_mapper>;
         process-next;
+    };
+    volume {
+        layers = <FCN>;
+        input-processors = <&zip_xy_to_volume_mapper>;
+        // process-next;
     };
   };
 }; 
