@@ -290,16 +290,17 @@
     compatible = "zmk,input-listener";
     device = <&trackball_left>;
     // device = <&trackball_right>;
+    input-processors = <&zip_xy_to_volume_mapper>;
 
     // scroll {
     //     layers = <DEFAULT>;
     //     input-processors = <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>, <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>, <&zip_xy_scaler 1 20>, <&zip_xy_to_scroll_mapper>;
     //     process-next;
     // };
-    volume {
-        layers = <DEFAULT>;
-        input-processors = <&zip_xy_to_volume_mapper>;
+    // volume {
+    //     layers = <DEFAULT>;
+    //     input-processors = <&zip_xy_to_volume_mapper>;
         // process-next;
-    };
+    // };
   };
 }; 
